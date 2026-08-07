@@ -6,7 +6,7 @@ const app = new Hono();
 
 const client = new InferenceClient(process.env.HF_TOKEN);
 
-app.use(cors({ origin: "http://localhost:5173" }));
+app.use(cors({ origin: process.env.FRONTEND_URL || "http://localhost:5173" }));
 
 const STYLE_SUFFIXES: Record<string, string> = {
   cyberpunk:
